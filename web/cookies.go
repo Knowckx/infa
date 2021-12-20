@@ -7,8 +7,6 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/zellyn/kooky"
 	"github.com/zellyn/kooky/chrome"
-	infa "github.tools.sap/aeolia/in-fa"
-	"github.tools.sap/aeolia/in-fa/util"
 )
 
 func GetHostCookies(host string) []*http.Cookie {
@@ -34,13 +32,13 @@ func GetChromeCookies() []*kooky.Cookie {
 }
 
 func PrintCookies(cks []*http.Cookie) {
-	infa.Printf("Domain Name value Path -- len %d", len(cks))
+	// infa.Printf("Domain Name value Path -- len %d", len(cks))
 	for _, ck := range cks {
 		PrintCookie(ck)
 	}
 }
 
 func PrintCookie(ck *http.Cookie) {
-	val := util.ShortStr(ck.Value)
-	infa.Printf("%s %s %s %s", ck.Domain, ck.Name, val, ck.Path)
+	// val := util.ShortStr(ck.Value)
+	// infa.Printf("%s %s %s %s", ck.Domain, ck.Name, val, ck.Path)
 }
