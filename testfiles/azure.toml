@@ -1,0 +1,9 @@
+[se-test1]
+host = "9d864643-1d6b-4ce5-93f8-60eb1e6a2172"
+user = "tid-test-01"
+
+[se-test2]
+host = "53625f0f-5339-455a-9c89-7bd9d9a0e495"
+user = "tid-test-02"
+
+
