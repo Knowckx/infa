@@ -29,9 +29,7 @@ func ExecCmd(in string) error {
 	return scatter.ExecCmd(in)
 }
 
-func LocFilePath(projName string, mids ...string) string {
-	return path.LocFilePath(projName, mids...)
-}
+
 
 func NewParallel(max int) *parallel.WaitPool {
 	return parallel.NewWaitPool(max)
