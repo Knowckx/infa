@@ -6,9 +6,9 @@ import (
 
 	infa "github.com/Knowckx/infa"
 	"github.com/Knowckx/infa/util"
+	"github.com/browserutils/kooky"
+	"github.com/browserutils/kooky/browser/chrome"
 	"github.com/rs/zerolog/log"
-	"github.com/zellyn/kooky"
-	"github.com/zellyn/kooky/browser/chrome"
 )
 
 func GetHostCookies(host string) []*http.Cookie {
