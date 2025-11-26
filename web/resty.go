@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/go-resty/resty/v2"
-	"github.com/pkg/errors"
 	"log/slog"
+
+	"github.com/cockroachdb/errors"
+	"github.com/go-resty/resty/v2"
 	"github.com/tidwall/gjson"
 )
 

@@ -4,8 +4,9 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/pkg/errors"
 	"log/slog"
+
+	"github.com/cockroachdb/errors"
 	"gopkg.in/yaml.v2"
 )
 

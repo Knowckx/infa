@@ -4,9 +4,10 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/Knowckx/infa/util"
-	"github.com/pkg/errors"
 	"log/slog"
+
+	"github.com/Knowckx/infa/util"
+	"github.com/cockroachdb/errors"
 )
 
 type Command struct {

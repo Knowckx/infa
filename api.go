@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	Version = "1.01"
+	Version = "1.0.2"
 )
 
 func ShortStr(in string) string {
