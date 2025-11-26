@@ -5,19 +5,19 @@ import (
 	"os"
 
 	"github.com/pkg/errors"
-	"github.com/rs/zerolog/log"
+	"log/slog"
 	"gopkg.in/yaml.v2"
 )
 
 func LoadYamlFile(f string, data interface{}) error {
 	out, err := ioutil.ReadFile(f)
 	if err != nil {
-		log.Error().Str("file", f).Err(err).Msg("read file error")
+		slog.Error("read file error", "file", f, "error", err)
 		return err
 	}
 	err = yaml.Unmarshal(out, data)
 	if err != nil {
-		log.Error().Str("file", f).Err(err).Msg("yaml.Unmarshal error")
+		slog.Error("yaml.Unmarshal error", "file", f, "error", err)
 		return err
 	}
 	return err

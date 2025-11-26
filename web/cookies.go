@@ -9,7 +9,7 @@ import (
 	"github.com/Knowckx/infa/util"
 	"github.com/browserutils/kooky"
 	"github.com/browserutils/kooky/browser/chrome"
-	"github.com/rs/zerolog/log"
+	"log/slog"
 )
 
 func GetHostCookies(host string) []*http.Cookie {
@@ -29,7 +29,7 @@ func GetChromeCookies() []*kooky.Cookie {
 	cookiesFile := dir + "/Google/Chrome/Default/Cookies"
 	cookies, err := chrome.ReadCookies(context.TODO(), cookiesFile)
 	if err != nil {
-		log.Error().Stack().Err(err).Send()
+		slog.Error("error reading cookies", "error", err)
 	}
 	return cookies
 }

@@ -46,6 +46,6 @@ go test ./...
 
 -   **Modularity:** The code is organized into small, focused packages based on functionality. A top-level `api.go` provides a clean public interface.
 -   **Error Handling:** The `github.com/pkg/errors` library is used to add stack traces to errors, which is helpful for debugging.
--   **Logging:** The `github.com/rs/zerolog` library is used for structured logging.
+-   **Logging:** The `log/slog` library is used for structured logging.
 -   **Configuration:** The library provides helper functions to generate default configurations (e.g., for GORM), simplifying setup.
 -   **Testing:** Test files (`*_test.go`) are present alongside the source files, indicating a convention of co-located tests. The `stretchr/testify` library is used for assertions.

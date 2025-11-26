@@ -6,7 +6,7 @@ import (
 
 	"github.com/Knowckx/infa/util"
 	"github.com/pkg/errors"
-	"github.com/rs/zerolog/log"
+	"log/slog"
 )
 
 type Command struct {
@@ -34,7 +34,7 @@ func NewCommand(in string) *Command {
 }
 
 func (t *Command) RunCommand() error {
-	log.Info().Msgf("Run Command: %s", t.CmdSrc)
+	slog.Info("Run Command", "command", t.CmdSrc)
 	err := t.Run()
 	if err != nil {
 		return errors.WithStack(err)

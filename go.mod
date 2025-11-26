@@ -7,7 +7,6 @@ require (
 	github.com/go-resty/resty/v2 v2.17.0
 	github.com/pelletier/go-toml/v2 v2.2.4
 	github.com/pkg/errors v0.9.1
-	github.com/rs/zerolog v1.34.0
 	github.com/stretchr/testify v1.11.1
 	github.com/tidwall/gjson v1.18.0
 	gopkg.in/yaml.v2 v2.4.0
@@ -29,8 +28,6 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/keybase/go-keychain v0.0.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
-	github.com/mattn/go-colorable v0.1.13 // indirect
-	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect

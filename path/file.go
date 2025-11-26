@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/pkg/errors"
-	"github.com/rs/zerolog/log"
+	"log/slog"
 )
 
 func SaveDataToFile(fileName, data string) error {
@@ -16,7 +16,7 @@ func SaveDataToFile(fileName, data string) error {
 	}
 	defer f.Close()
 	f.WriteString(data)
-	log.Info().Str("fileName", fileName).Msg("write data to file success.")
+	slog.Info("write data to file success.", "fileName", fileName)
 	return nil
 }
 

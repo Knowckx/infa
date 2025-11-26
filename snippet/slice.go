@@ -1,7 +1,7 @@
 package snippet
 
 import (
-	"github.com/rs/zerolog/log"
+	"log/slog"
 )
 
 func DealSliceByStep() {
@@ -14,7 +14,7 @@ func DealSliceByStep() {
 		if next > total {
 			next = total
 		}
-		log.Info().Msgf("current progress is [%d-%d] / %d", indexNow, next, total)
+		slog.Info("current progress", "from", indexNow, "to", next, "total", total)
 		DoList(tarList[indexNow:next])
 		indexNow = next
 	}

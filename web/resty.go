@@ -6,7 +6,7 @@ import (
 
 	"github.com/go-resty/resty/v2"
 	"github.com/pkg/errors"
-	"github.com/rs/zerolog/log"
+	"log/slog"
 	"github.com/tidwall/gjson"
 )
 
@@ -21,7 +21,7 @@ func NewRestClient() *RestClient {
 }
 
 func (cli *RestClient) DoGet(url string, queryParams map[string]string) (*gjson.Result, error) {
-	log.Debug().Str("url", url).Interface("params", queryParams).Msg("send request get")
+	slog.Debug("send request get", "url", url, "params", queryParams)
 	if queryParams != nil {
 		cli.Client = cli.SetQueryParams(queryParams)
 	}
@@ -39,7 +39,7 @@ func (cli *RestClient) DoGet(url string, queryParams map[string]string) (*gjson.
 }
 
 func (cli *RestClient) DoGetResp(url string, queryParams map[string]string) (*resty.Response, error) {
-	log.Debug().Str("url", url).Interface("params", queryParams).Msg("send request get")
+	slog.Debug("send request get", "url", url, "params", queryParams)
 	if queryParams != nil {
 		cli.Client = cli.SetQueryParams(queryParams)
 	}
@@ -56,7 +56,7 @@ func (cli *RestClient) DoGetResp(url string, queryParams map[string]string) (*re
 }
 
 func (cli *RestClient) DoPost(url string, body interface{}) (*gjson.Result, error) {
-	log.Debug().Str("post url,", url).Interface("body", body).Send()
+	slog.Debug("post", "url", url, "body", body)
 	resp, err := cli.R().SetBody(body).Post(url)
 	if err != nil {
 		return nil, errors.WithStack(err)
@@ -72,11 +72,11 @@ func (cli *RestClient) DoPost(url string, body interface{}) (*gjson.Result, erro
 
 func CheckRestyResponse(resp *resty.Response) error {
 	if resp.IsError() {
-		log.Error().Int("Status Code", resp.StatusCode()).Msg("Http Request Failed")
+		slog.Error("Http Request Failed", "Status Code", resp.StatusCode())
 		data := resp.Body()
-		log.Error().Str("Body", string(data)).Send()
+		slog.Error("body", "body", string(data))
 		return fmt.Errorf("Http Request Failed")
 	}
-	log.Debug().Int("Status Code", resp.StatusCode()).Msg("Http Request Success.")
+	slog.Debug("Http Request Success.", "Status Code", resp.StatusCode())
 	return nil
 }

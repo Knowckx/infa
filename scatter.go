@@ -4,7 +4,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/rs/zerolog/log"
+	"log/slog"
 )
 
 func PanicIfErr(err error) {
@@ -16,7 +16,7 @@ func PanicIfErr(err error) {
 func Getenv(key string) string {
 	value := os.Getenv(key)
 	if value == "" {
-		log.Warn().Str("key", key).Msg("Get environment variable failed. return nil.")
+		slog.Warn("Get environment variable failed. return nil.", "key", key)
 	}
 	return value
 }

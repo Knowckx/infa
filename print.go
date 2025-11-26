@@ -9,7 +9,7 @@ import (
 
 	"github.com/pelletier/go-toml/v2"
 
-	"github.com/rs/zerolog/log"
+	"log/slog"
 	"gopkg.in/yaml.v2"
 )
 
@@ -21,7 +21,7 @@ func Printf(format string, a ...interface{}) (n int, err error) {
 func PrintJson(in interface{}) {
 	res, err := json.MarshalIndent(in, "", "\t")
 	if err != nil {
-		log.Error().Stack().Err(err).Send()
+		slog.Error("error marshaling", "error", err)
 		return
 	}
 	Printf(string(res))
@@ -30,7 +30,7 @@ func PrintJson(in interface{}) {
 func PrintYaml(in interface{}) {
 	res, err := yaml.Marshal(in)
 	if err != nil {
-		log.Error().Stack().Err(err).Send()
+		slog.Error("error marshaling", "error", err)
 		return
 	}
 	Printf(string(res))
@@ -39,7 +39,7 @@ func PrintYaml(in interface{}) {
 func PrintToml(in interface{}) {
 	res, err := toml.Marshal(in)
 	if err != nil {
-		log.Error().Stack().Err(err).Send()
+		slog.Error("error marshaling", "error", err)
 		return
 	}
 	Printf(string(res))
