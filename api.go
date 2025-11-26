@@ -9,6 +9,10 @@ import (
 	"k8s.io/apimachinery/pkg/util/rand"
 )
 
+var (
+	Version = "1.01"
+)
+
 func ShortStr(in string) string {
 	return util.ShortStr(in)
 }
@@ -28,8 +32,6 @@ func ReadFile(f string) (string, error) {
 func ExecCmd(in string) error {
 	return scatter.ExecCmd(in)
 }
-
-
 
 func NewParallel(max int) *parallel.WaitPool {
 	return parallel.NewWaitPool(max)
