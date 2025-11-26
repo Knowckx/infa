@@ -21,3 +21,12 @@ func (ac *Averager) AddNumber(num any) {
 	ac.count++
 	ac.Avg = ac.sum / float64(ac.count)
 }
+
+// 整数求绝对值
+func Abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
