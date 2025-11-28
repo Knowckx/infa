@@ -1,5 +1,37 @@
 package infa
 
+import (
+	"fmt"
+	"math"
+)
+
+// 坐标点
+type Int2 struct {
+	X int
+	Y int
+}
+
+func (s Int2) String() string {
+	out := fmt.Sprintf("[%d, %d]", s.X, s.Y)
+	return out
+}
+
+// 两点的距离
+func (s *Int2) GetDistance(in *Int2) float64 {
+	xGap := in.X - s.X
+	yGap := in.Y - s.Y
+	res := math.Sqrt(float64(xGap*xGap + yGap*yGap))
+	return res
+}
+
+// 两点的中间位置
+func (s *Int2) GetMidPos(in *Int2) *Int2 {
+	out := &Int2{}
+	out.X = (in.X + s.X) / 2
+	out.Y = (in.Y + s.Y) / 2
+	return out
+}
+
 // 放和计算有关的东西
 
 // 平均数计算器
@@ -29,4 +61,3 @@ func Abs(x int) int {
 	}
 	return x
 }
-
