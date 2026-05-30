@@ -10,13 +10,10 @@ import (
 	"github.com/pelletier/go-toml/v2"
 
 	"log/slog"
+
 	"gopkg.in/yaml.v2"
 )
 
-func Printf(format string, a ...interface{}) (n int, err error) {
-	format = fmt.Sprintf("%s\n", format)
-	return fmt.Printf(format, a...)
-}
 
 func PrintJson(in interface{}) {
 	res, err := json.MarshalIndent(in, "", "\t")
