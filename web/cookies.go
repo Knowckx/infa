@@ -5,11 +5,10 @@ import (
 	"net/http"
 	"os"
 
-	infa "github.com/Knowckx/infa"
-	"github.com/Knowckx/infa/util"
+	"log/slog"
+
 	"github.com/browserutils/kooky"
 	"github.com/browserutils/kooky/browser/chrome"
-	"log/slog"
 )
 
 func GetHostCookies(host string) []*http.Cookie {
@@ -35,13 +34,13 @@ func GetChromeCookies() []*kooky.Cookie {
 }
 
 func PrintCookies(cks []*http.Cookie) {
-	infa.Printf("Domain Name value Path -- len %d", len(cks))
-	for _, ck := range cks {
-		PrintCookie(ck)
-	}
+	// infa.Printf("Domain Name value Path -- len %d", len(cks))
+	// for _, ck := range cks {
+	// 	PrintCookie(ck)
+	// }
 }
 
 func PrintCookie(ck *http.Cookie) {
-	val := util.ShortStr(ck.Value)
-	infa.Printf("%s %s %s %s", ck.Domain, ck.Name, val, ck.Path)
+	// val := util.ShortStr(ck.Value)
+	// infa.Printf("%s %s %s %s", ck.Domain, ck.Name, val, ck.Path)
 }
